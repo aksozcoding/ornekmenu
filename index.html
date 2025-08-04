@@ -1,234 +1,310 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dijital Menü</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cafe Menü</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Playfair Display', serif;
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
     }
     body {
-      background: #111;
-      color: #f1f1f1;
-      padding: 20px;
+      background-color: #111;
+      color: #fff;
+      line-height: 1.6;
     }
-    h1 {
-      text-align: center;
-      margin-bottom: 40px;
-      color: #d4af37;
-      font-size: 36px;
+    header {
+      background: #000;
+      color: gold;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    .menu-category {
-      margin-bottom: 50px;
+    header h1 {
+      font-size: 24px;
     }
-    .menu-category h2 {
-      font-size: 28px;
-      border-left: 5px solid #d4af37;
-      padding-left: 15px;
-      margin-bottom: 25px;
-      color: #ffffff;
+    nav {
+      display: none;
+      flex-direction: column;
+      background: #222;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      width: 200px;
+      border: 1px solid #444;
+      border-radius: 8px;
+    }
+    nav a {
+      padding: 10px;
+      text-decoration: none;
+      color: #fff;
+      border-bottom: 1px solid #444;
+    }
+    nav a:last-child {
+      border-bottom: none;
+    }
+    .burger {
+      font-size: 22px;
+      cursor: pointer;
+    }
+    .menu-section {
+      padding: 30px 20px;
+    }
+    .menu-section h2 {
+      color: gold;
+      margin-bottom: 10px;
+      border-bottom: 1px solid gold;
+      padding-bottom: 5px;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
     }
     .menu-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-      border-radius: 12px;
-      background: #1e1e1e;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-      overflow: hidden;
-      transition: transform 0.3s ease;
-    }
-    .menu-item:hover {
-      transform: scale(1.02);
+      background: #1a1a1a;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
     }
     .menu-item img {
-      width: 110px;
-      height: 110px;
+      width: 100%;
+      height: 180px;
       object-fit: cover;
+      border-radius: 8px;
     }
-    .menu-details {
-      padding: 15px;
-      flex: 1;
+    .menu-item h3 {
+      margin: 10px 0 5px;
+      color: #fff;
     }
-    .menu-details h3 {
-      margin-bottom: 5px;
-      color: #f8f8f8;
+    .menu-item p {
+      font-size: 14px;
+      color: #aaa;
     }
     .price {
-      color: #d4af37;
+      color: gold;
+      margin-top: 5px;
       font-weight: bold;
     }
-    @media(max-width: 410px) {
-      .menu-item {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .menu-item img {
-        width: 100%;
-        height: auto;
-      }
-    }
+
   </style>
 </head>
 <body>
-  <h1>Menü</h1>
 
-  <div class="menu-category">
-    <h2>☕️ Kahveler</h2>
+<header>
+  <h1>Cafe Menü Örnek</h1>
+  <i class="fas fa-bars burger" onclick="toggleMenu()"></i>
+  <nav id="menu">
+    <a href="#pizzalar">Pizzalar</a>
+    <a href="#burgerler">Burgerler</a>
+    <a href="#icecekler">İçecekler</a>
+    <a href="#caykahve">Çay & Kahve</a>
+    <a href="#tatlilar">Tatlılar</a>
+    <a href="#ickiler">İçkiler</a>
+  </nav>
+</header>
+
+<div class="menu-section" id="pizzalar">
+  <h2>🍕 Pizzalar</h2>
+  <div class="menu-grid">
     <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/%C3%96rnek.jpg" alt="Espresso">
-      <div class="menu-details">
-        <h3>Espresso (Single/Double)</h3>
-        <p class="price">45₺ / 55₺</p>
-      </div>
+      <img src="https://assets.surlatable.com/m/15a89c2d9c6c1345/72_dpi_webp-REC-283110_Pizza.jpg" alt="Pizza">
+      <h3>Napoliten Pizza</h3>
+      <p>Domates, mozarella, fesleğen</p>
+      <div class="price">₺145</div>
     </div>
     <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/%C3%96rnek.jpg" alt="Americano">
-      <div class="menu-details">
-        <h3>Americano</h3>
-        <p class="price">50₺</p>
-      </div>
-    </div>
-    <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/%C3%96rnek.jpg" alt="Latte">
-      <div class="menu-details">
-        <h3>Latte (Vanilla, Caramel, Mocha)</h3>
-        <p class="price">65₺</p>
-      </div>
-    </div>
-    <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/%C3%96rnek.jpg" alt="Flat White">
-      <div class="menu-details">
-        <h3>Flat White</h3>
-        <p class="price">58₺</p>
-      </div>
-    </div>
-    <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/%C3%96rnek.jpg" alt="Macchiato">
-      <div class="menu-details">
-        <h3>Macchiato</h3>
-        <p class="price">60₺</p>
-      </div>
-    </div>
-    <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/%C3%96rnek.jpg" alt="Cold Brew">
-      <div class="menu-details">
-        <h3>Cold Brew</h3>
-        <p class="price">70₺</p>
-      </div>
-    </div>
-    <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/%C3%96rnek.jpg" alt="V60 / Chemex">
-      <div class="menu-details">
-        <h3>V60 / Chemex / Syphon</h3>
-        <p class="price">80₺</p>
-      </div>
+      <img src="https://ooni.com/cdn/shop/articles/20220211142347-margherita-9920_ba86be55-674e-4f35-8094-2067ab41a671.jpg?v=1737104576&width=2048" alt="Pizza">
+      <h3>Pepperoni Pizza</h3>
+      <p>Özel sos, pepperoni dilimleri</p>
+      <div class="price">₺160</div>
     </div>
   </div>
+</div>
 
-  <div class="menu-category">
-    <h2>🍵 Çaylar ve Bitki Çayları</h2>
+
+
+
+
+
+
+<br><br>
+<div class="menu-section" id="burgerler">
+  <h2>🍔 Burgerler</h2>
+  <div class="menu-grid">
     <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/%C3%96rnek.jpg" alt="Siyah Çay">
-      <div class="menu-details">
-        <h3>Geleneksel Siyah Çay</h3>
-        <p class="price">30₺</p>
-      </div>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuoS6_wIXY5dx2M4H88TE4UhSXA87yaOtz7w&s" alt="Burger">
+      <h3>Klasik Burger</h3>
+      <p>150gr et, cheddar, domates</p>
+      <div class="price">₺135</div>
     </div>
     <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/%C3%96rnek.jpg" alt="Yeşil Çay">
-      <div class="menu-details">
-        <h3>Yeşil Çay (Matcha, Jasmine)</h3>
-        <p class="price">45₺</p>
-      </div>
-    </div>
-    <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/%C3%96rnek.jpg" alt="Papatya Çayı">
-      <div class="menu-details">
-        <h3>Papatya, Rezene, Adaçayı</h3>
-        <p class="price">40₺</p>
-      </div>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOX2YyS0W1LnrD5eyd-7Q9kvO1JGvE80AXXA&s" alt="Burger">
+      <h3>Cheeseburger Deluxe</h3>
+      <p>Çift kat peynirli özel burger</p>
+      <div class="price">₺150</div>
     </div>
   </div>
+</div>
 
-  <div class="menu-category">
-    <h2>🥤 Soğuk İçecekler</h2>
+
+
+
+
+
+
+
+
+<br><br>
+<div class="menu-section" id="icecekler">
+  <h2>🥤 Soğuk İçecekler</h2>
+  <div class="menu-grid">
     <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/%C3%96rnek.jpg" alt="Smoothie">
-      <div class="menu-details">
-        <h3>Smoothie (Çilekli, Muzlu)</h3>
-        <p class="price">65₺</p>
-      </div>
+      <img src="https://media.istockphoto.com/id/487787108/tr/foto%C4%9Fraf/can-of-coca-cola-on-ice.jpg?s=612x612&w=0&k=20&c=iAqEwRPJ1ZdrEMKmTzi3-FpFYWarRBYY9_caaA3jslw=" alt="Kola">
+      <h3>Kola</h3>
+      <p>Soğuk servis</p>
+      <div class="price">₺30</div>
     </div>
     <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/%C3%96rnek.jpg" alt="Detox">
-      <div class="menu-details">
-        <h3>Detox İçecekleri</h3>
-        <p class="price">60₺</p>
-      </div>
+      <img src="https://cdn.dsmcdn.com/mrktng/seo/23mart1/sade-soda-faydalari-3.jpg" alt="Soda">
+      <h3>Sade Soda</h3>
+      <p>Doğal maden suyu</p>
+      <div class="price">₺25</div>
     </div>
   </div>
+</div>
 
-  <div class="menu-category">
-    <h2>🍳 Kahvaltılıklar / Brunch</h2>
+
+
+
+
+
+
+
+
+<br><br>
+<div class="menu-section" id="caykahve">
+  <h2>☕ Çay & Kahve</h2>
+  <div class="menu-grid">
     <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/%C3%96rnek.jpg" alt="Kahvaltı">
-      <div class="menu-details">
-        <h3>Serpme Lüks Kahvaltı Tabağı</h3>
-        <p class="price">180₺</p>
-      </div>
+      <img src="https://cdn.myikas.com/images/4fe7a638-08b1-4511-af04-b1e5c46eff18/0029026b-46be-4a90-a184-350c7c285273/image_1080.jpg" alt="Kahve">
+      <h3>Türk Kahvesi</h3>
+      <p>Orta şekerli</p>
+      <div class="price">₺35</div>
     </div>
     <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/%C3%96rnek.jpg" alt="Poşe Yumurta">
-      <div class="menu-details">
-        <h3>Avokado Ezmesi & Poşe Yumurta</h3>
-        <p class="price">95₺</p>
-      </div>
+      <img src="https://www.cumhuriyetpark.net/upload/urunler/bardak_cay_1.jpg" alt="Çay">
+      <h3>Çay</h3>
+      <p>Taze demleme</p>
+      <div class="price">₺20</div>
     </div>
   </div>
+</div>
 
-  <div class="menu-category">
-    <h2>🍰 Tatlılar</h2>
+<br><br>
+
+
+
+
+
+
+<div class="menu-section" id="tatlilar">
+  <h2>🍰 Tatlılar</h2>
+  <div class="menu-grid">
     <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/%C3%96rnek.jpg" alt="Cheesecake">
-      <div class="menu-details">
-        <h3>Cheesecake (Frambuazlı)</h3>
-        <p class="price">90₺</p>
-      </div>
+      <img src="https://img-s1.onedio.com/id-58bff00b8f92ded60e345fc3/rev-0/w-600/h-368/f-jpg/s-da884238dffe19f7a23cc9f71a6e004af1bfee37.jpg" alt="Tatlı">
+      <h3>Cheesecake</h3>
+      <p>Frambuaz soslu</p>
+      <div class="price">₺70</div>
     </div>
     <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/%C3%96rnek.jpg" alt="San Sebastian">
-      <div class="menu-details">
-        <h3>San Sebastian</h3>
-        <p class="price">95₺</p>
-      </div>
+      <img src="https://www.safranbolufirini.com/wp-content/uploads/2023/04/cilekli-magnolia-optimized.webp" alt="Tatlı">
+      <h3>Çikolatalı Sufle</h3>
+      <p>Sıcak ve akışkan</p>
+      <div class="price">₺80</div>
     </div>
   </div>
+</div>
 
-  <div class="menu-category">
-    <h2>🍹 Mocktail & Özel İçecekler</h2>
+
+
+
+
+
+<br><br>
+
+
+
+
+
+
+
+
+<div class="menu-section" id="ickiler">
+  <h2>🍷 İçkiler</h2>
+  <div class="menu-grid">
     <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/%C3%96rnek.jpg" alt="Mojito">
-      <div class="menu-details">
-        <h3>Virgin Mojito</h3>
-        <p class="price">80₺</p>
-      </div>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfIasbffn67AC6LzdMloul2kxO9gI8xLNz-A&s" alt="Kırmızı Şarap">
+      <h3>Kırmızı Şarap</h3>
+      <p>Fransız üzümünden</p>
+      <div class="price">₺220</div>
     </div>
     <div class="menu-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/%C3%96rnek.jpg" alt="Rose Latte">
-      <div class="menu-details">
-        <h3>Rose Latte</h3>
-        <p class="price">70₺</p>
-      </div>
+      <img src="https://www.saraplikuzum.com/wp-content/uploads/2020/10/beyaz_sarap_yapimi.jpg" alt="Beyaz Şarap">
+      <h3>Beyaz Şarap</h3>
+      <p>Soğuk servis</p>
+      <div class="price">₺210</div>
+    </div>
+    <div class="menu-item">
+      <img src="https://www.butikicki.com/wp-content/uploads/2020/05/iStock-533225488_16x9.jpg" alt="Viski">
+      <h3>Viski</h3>
+      <p>İskoç harmanı, buzlu</p>
+      <div class="price">₺300</div>
     </div>
   </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('menu');
+    if (nav.style.display === 'flex') {
+      nav.style.display = 'none';
+    } else {
+      nav.style.display = 'flex';
+    }
+  }
+</script>
 
 </body>
 </html>
-
-
